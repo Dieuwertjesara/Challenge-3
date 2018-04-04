@@ -1,0 +1,35 @@
+
+    html, body{
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      position: fixed;
+    }
+    #map-canvas {
+      width: 100%;
+      height: 100%;
+    }
+    .gm-style-iw {
+      text-align: center;
+    }
+
+
+
+@media only screen  and (orientation : landscape) {
+
+
+}
+
+/*tablet breakpoint*/
+
+@media only screen and (min-width: 600px) {
+
+
+}
+
+/*Desktop breakpoint*/
+@media only screen and (min-width: 1200px) {
+
+    
+}

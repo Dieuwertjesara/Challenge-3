@@ -7,9 +7,8 @@
   var openWeatherMapKey = "7d5d8d10e16f1532dde20890822a8898";
   function initialize() {
     var mapOptions = {
-      zoom: 4,
-      center: new google.maps.LatLng(50,-50)
-	  
+      center: new google.maps.LatLng(52.0670253,4.323523499999965),
+	  zoom: 1,
     };
     map = new google.maps.Map(document.getElementById("map-canvas"),
         mapOptions);
@@ -132,22 +131,23 @@
       map.data.remove(feature);
     });
 	
-	var contentEindhoven = '<div id="content">'+
+	var contentHaagseDenHaag = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Eindhoven</h1>'+
+            '<h1 id="firstHeading" class="firstHeading">De Haagse Hogeschool</h1>'+
             '<div id="bodyContent">'+
             
-			'<p><b>Aantal inwoners</b> 227.100 inwoners<br /> ' +
+			'<p><b>Aantal inwoners</b>  525.000 inwoners<br /> ' +
             '<b>Hoogte landingsplek</b> 5 meter<br /> '+
             '<b>Landingsplek aangeraden</b><br /></p>'+
             '</div>'+
             '</div>';
+      
 			
-	var contentLonden = '<div id="content">'+
+	var contentStonehenge = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Londen</h1>'+
+            '<h1 id="firstHeading" class="firstHeading">Stonehenge</h1>'+
             '<div id="bodyContent">'+
             
 			'<p><b>Aantal inwoners</b> 8.674.713 inwoners<br /> ' +
@@ -155,10 +155,10 @@
             '</div>'+
             '</div>';
 			
-	var contentNewYork = '<div id="content">'+
+	var contentMcDonaldIsland = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">New York</h1>'+
+            '<h1 id="firstHeading" class="firstHeading">McDonald Island</h1>'+
             '<div id="bodyContent">'+
             
 			'<p><b>Aantal inwoners</b> 8.550.405 inwoners<br /> ' +
@@ -170,17 +170,22 @@
       // Array of markers
       var markers = [
         {
-          coords:{lat:51.4266279,lng:5.4813194},
-          content: contentEindhoven
-			
+          coords:{lat:52.0670253,lng:4.323523499999965},
+          content: contentHaagseDenHaag,
+          title: 'NASA',
+          icon: image,    
         },
         {
-          coords:{lat:51.509865,lng:-0.118092},
-          content:contentLonden
+          coords:{lat:51.17888199999999,lng:-1.8262150000000474},
+          content:contentStonehenge,
+          title: 'NASA',
+            icon: image, 
         },
         {
-          coords:{lat:40.730610,lng:-73.935242},
-		  content:contentNewYork
+          coords:{lat:-53.08181,lng:73.50415799999996},
+		  content:contentMcDonaldIsland,
+          title: 'NASA',
+            icon: image, 
         }
       ];
 
@@ -195,6 +200,7 @@
         var marker = new google.maps.Marker({
           position:props.coords,
           map:map,
+          icon: image,
           //icon:props.iconImage
         });
 
@@ -202,6 +208,7 @@
         if(props.iconImage){
           // Set icon image
           marker.setIcon(props.iconImage);
+            
         }
 
         // Check content
@@ -216,22 +223,23 @@
         }
       }
 	
-	
+	var image = 'pictures/success.png';
+        
   };
   google.maps.event.addDomListener(window, 'load', initialize);
   
 
 function setMarkerOne()	{
 	var icon = {
-		url: 'pictures/nasaLogo-570x450.png',
+		url: 'picture/success2.png',
 		scaledSize: new google.maps.Size(70, 60) // scaled size
 	};
-	
+	var image = 'pictures/nasalogo.png';
 	var marker = new google.maps.Marker({
 		position: {lat: 28.5728722, lng: -80.6489808},
 		map: map,
 		icon: icon,
-		title: 'Hello World!'
+		title: 'NASA'
 	});	
 }
 
@@ -239,7 +247,7 @@ function setMarkerOne()	{
 
 function setMarkerTwo()	{
 	var icon = {
-		url: 'pictures/nasaLogo-570x450.png',
+		url: 'pictures/nasalogo.png',
 		scaledSize: new google.maps.Size(70, 60) // scaled size
 	};
 	
@@ -247,10 +255,14 @@ function setMarkerTwo()	{
 		position: {lat: 28.396837, lng: -80.605659},
 		map: map,
 		icon: icon,
-		title: 'Hello World!'
+		title: 'NASA'
 	});
 	
 	
 }
+
+
+
+
 
   
